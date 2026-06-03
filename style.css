@@ -480,7 +480,7 @@ button {
 
 .featured-project {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr) 230px;
+  grid-template-columns: 260px minmax(0, 1fr) 230px;
   gap: 22px;
   align-items: center;
   padding: 22px;
@@ -1286,4 +1286,78 @@ button {
   .wafflin-visual {
     min-height: 360px;
   }
+}
+
+.profile-brand,
+.mini-profile {
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-brand img,
+.mini-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.profile-brand span,
+.mini-profile span {
+  display: none;
+}
+
+.profile-brand img:not([src]),
+.mini-profile img:not([src]) {
+  display: none;
+}
+
+.standout-image-card {
+  min-height: 190px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 15%, rgba(29, 185, 84, 0.35), transparent 35%),
+    linear-gradient(135deg, #082b16, #101010);
+  border: 1px solid rgba(29, 185, 84, 0.38);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+.standout-image-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.standout-image-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.standout-image-fallback span {
+  width: 78px;
+  height: 78px;
+  border-radius: 22px;
+  background: rgba(29, 185, 84, 0.14);
+  border: 1px solid rgba(29, 185, 84, 0.45);
+  display: grid;
+  place-items: center;
+  color: var(--green-2);
+  font-weight: 950;
+  font-size: 1.35rem;
+}
+
+.standout-image-fallback p {
+  color: var(--green-2);
+  font-weight: 950;
+  margin-top: 12px;
+  max-width: 150px;
 }
