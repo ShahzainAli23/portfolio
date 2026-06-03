@@ -61,9 +61,10 @@
       <!-- HOME -->
       <section class="view active" id="home" aria-label="Home">
         <div class="hero-layout">
-          <div class="album-cover hero-cover">
-            <div class="cover-glow"></div>
-            <div class="cover-inner">
+          <div class="profile-photo-card hero-cover">
+            <img src="assets/profile.jpg" alt="Shahzain Ali Khan" class="profile-photo" />
+            <div class="profile-photo-fallback">SA</div>
+            <div class="profile-overlay">
               <span class="small-label">now playing</span>
               <h1>Shahzain<br />Ali Khan</h1>
               <p>Data Analytics • Game Development • NLP</p>
@@ -360,15 +361,30 @@
 
       <!-- STARTUP -->
       <section class="view" id="startup" aria-label="Startup">
-        <div class="startup-layout">
-          <div>
+        <div class="startup-layout improved-startup">
+          <div class="startup-copy">
             <p class="eyebrow">Startup Track</p>
             <h2>Wafflin’ Around</h2>
             <p>
-              A student-run venture focused on product execution, operations, inventory,
-              workflow optimization, and customer-facing systems. This section stays focused
-              only on Wafflin’ Around.
+              A student-run venture where I work across product execution, operations,
+              inventory tracking, workflow optimization, and customer-facing systems.
+              This section stays focused only on Wafflin’ Around.
             </p>
+
+            <div class="startup-stat-row">
+              <div>
+                <strong>Ops</strong>
+                <span>Inventory + workflow systems</span>
+              </div>
+              <div>
+                <strong>Product</strong>
+                <span>Menu, pricing, process improvement</span>
+              </div>
+              <div>
+                <strong>POS</strong>
+                <span>Ordering and worker-side tools</span>
+              </div>
+            </div>
 
             <div class="startup-actions">
               <a href="https://wafflin-around.cayspace.com/?story=gnpntxzz3uxwnk9wrhhrz6oi" target="_blank" rel="noreferrer">Read Blog ↗</a>
@@ -376,12 +392,18 @@
             </div>
           </div>
 
-          <div class="startup-card">
-            <span>WA</span>
-            <h3>Ops + Product + POS</h3>
-            <p>
-              Built around real usage, real orders, process improvements, and business-side execution.
-            </p>
+          <div class="wafflin-visual">
+            <img src="assets/wafflin.jpg" alt="Wafflin’ Around" class="wafflin-photo" />
+            <div class="wafflin-fallback">
+              <span>WA</span>
+              <h3>Wafflin’ Around</h3>
+              <p>Add your photo at <code>assets/wafflin.jpg</code></p>
+            </div>
+
+            <div class="wafflin-caption">
+              <span>Startup mode</span>
+              <h3>Real orders. Real ops. Real product work.</h3>
+            </div>
           </div>
         </div>
       </section>

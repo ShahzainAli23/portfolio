@@ -177,3 +177,15 @@ document.querySelectorAll(".skill-icon img").forEach((img) => {
 });
 
 showView("home");
+
+
+/* Image fallback handling */
+document.querySelectorAll(".profile-photo, .wafflin-photo").forEach((img) => {
+  img.addEventListener("error", () => {
+    img.classList.add("image-missing");
+    const parent = img.parentElement;
+    if (parent) {
+      parent.classList.add("missing-image");
+    }
+  });
+});
