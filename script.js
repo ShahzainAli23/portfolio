@@ -205,3 +205,109 @@ document.querySelectorAll(".expandable-exp").forEach((card) => {
     }
   });
 });
+
+/* Experience popup cards */
+const expPopupOverlay = document.getElementById("expPopupOverlay");
+const expPopupBackdrop = document.getElementById("expPopupBackdrop");
+const expPopupCard = document.getElementById("expPopupCard");
+const expPopupClose = document.getElementById("expPopupClose");
+
+const expPopupDate = document.getElementById("expPopupDate");
+const expPopupTitle = document.getElementById("expPopupTitle");
+const expPopupCompany = document.getElementById("expPopupCompany");
+const expPopupBody = document.getElementById("expPopupBody");
+
+let lastExperienceCard = null;
+let lastExperienceRect = null;
+let popupScrollbarTimer = null;
+
+function openExperiencePopup(card) {
+  lastExperienceCard = card;
+  lastExperienceRect = card.getBoundingClientRect();
+
+  const date = card.querySelector(".exp-date")?.textContent || "";
+  const title = card.querySelector(".exp-main h3")?.textContent || "";
+  const company = card.querySelector(".exp-main p")?.textContent || "";
+  const body = card.querySelector(".exp-details p")?.textContent || "";
+
+  expPopupDate.textContent = date;
+  expPopupTitle.textContent = title;
+  expPopupCompany.textContent = company;
+  expPopupBody.textContent = body;
+
+  clearTimeout(popupScrollbarTimer);
+
+  expPopupOverlay.classList.add("active");
+  expPopupCard.classList.remove("content-ready");
+  expPopupCard.classList.add("popup-animating");
+
+  expPopupCard.style.top = `${lastExperienceRect.top}px`;
+  expPopupCard.style.left = `${lastExperienceRect.left}px`;
+  expPopupCard.style.width = `${lastExperienceRect.width}px`;
+  expPopupCard.style.height = `${lastExperienceRect.height}px`;
+  expPopupCard.style.borderRadius = "26px";
+
+  expPopupCard.classList.add("moving");
+
+  requestAnimationFrame(() => {
+    const targetWidth = Math.min(820, window.innerWidth - 44);
+    const targetHeight = Math.min(520, window.innerHeight - 70);
+    const targetLeft = (window.innerWidth - targetWidth) / 2;
+    const targetTop = (window.innerHeight - targetHeight) / 2;
+
+    expPopupCard.style.top = `${targetTop}px`;
+    expPopupCard.style.left = `${targetLeft}px`;
+    expPopupCard.style.width = `${targetWidth}px`;
+    expPopupCard.style.height = `${targetHeight}px`;
+    expPopupCard.style.borderRadius = "32px";
+
+    setTimeout(() => {
+      expPopupCard.classList.add("content-ready");
+        popupScrollbarTimer = setTimeout(() => {
+          expPopupCard.classList.remove("popup-animating");
+        }, 500);
+    }, 380);
+  });
+}
+
+function closeExperiencePopup() {
+  if (!lastExperienceRect) return;
+
+  clearTimeout(popupScrollbarTimer);
+
+  expPopupCard.classList.add("popup-animating");
+  expPopupCard.classList.remove("content-ready");
+
+  setTimeout(() => {
+    expPopupCard.style.top = `${lastExperienceRect.top}px`;
+    expPopupCard.style.left = `${lastExperienceRect.left}px`;
+    expPopupCard.style.width = `${lastExperienceRect.width}px`;
+    expPopupCard.style.height = `${lastExperienceRect.height}px`;
+    expPopupCard.style.borderRadius = "26px";
+  }, 80);
+
+  setTimeout(() => {
+    expPopupOverlay.classList.remove("active");
+    expPopupCard.classList.remove("moving");
+    lastExperienceCard = null;
+    lastExperienceRect = null;
+    popupScrollbarTimer = setTimeout(() => {
+      expPopupCard.classList.remove("popup-animating");
+    }, 500);
+  }, 430);
+}
+
+document.querySelectorAll(".exp-card-v2").forEach((card) => {
+  card.addEventListener("click", () => {
+    openExperiencePopup(card);
+  });
+});
+
+expPopupClose.addEventListener("click", closeExperiencePopup);
+expPopupBackdrop.addEventListener("click", closeExperiencePopup);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeExperiencePopup();
+  }
+});

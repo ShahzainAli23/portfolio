@@ -1843,3 +1843,414 @@ button {
 .project-shelf {
   grid-auto-columns: minmax(310px, 350px);
 }
+
+/* ===== Experience Section v2 ===== */
+
+#experience.view {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding-bottom: 48px;
+}
+
+.experience-grid,
+#experience .experience-grid {
+  display: none !important;
+}
+
+.experience-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 18px;
+  padding-bottom: 24px;
+}
+
+.exp-card-v2 {
+  min-height: 220px;
+  border-radius: 26px;
+  padding: 22px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.025));
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+
+.exp-card-v2:hover {
+  transform: translateY(-5px);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+  border-color: rgba(29,185,84,0.25);
+}
+
+.exp-card-v2.active-exp {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(29,185,84,0.22), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+  border-color: rgba(29,185,84,0.28);
+}
+
+.exp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.exp-date {
+  color: var(--green-2);
+  font-size: 0.85rem;
+  font-weight: 950;
+  letter-spacing: 0.4px;
+}
+
+.exp-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--green-2);
+
+  font-size: 1.25rem;
+  font-weight: 950;
+}
+
+.exp-main h3 {
+  font-size: clamp(1.45rem, 2.1vw, 2rem);
+  line-height: 1.02;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.exp-main p {
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.exp-preview {
+  margin-top: 22px;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.45;
+  font-size: 0.92rem;
+  max-width: 420px;
+}
+
+.exp-details {
+  display: none;
+}
+
+/* expanded layout */
+.exp-card-v2.expanded {
+  grid-column: 1 / -1;
+  min-height: 300px;
+
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(300px, 1.2fr);
+  column-gap: 44px;
+  align-items: center;
+
+  background:
+    radial-gradient(circle at 88% 10%, rgba(29,185,84,0.26), transparent 34%),
+    radial-gradient(circle at 5% 100%, rgba(29,185,84,0.12), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.025));
+}
+
+.exp-card-v2.expanded .exp-card-top {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  right: 22px;
+  margin-bottom: 0;
+}
+
+.exp-card-v2.expanded .exp-main {
+  padding-top: 48px;
+}
+
+.exp-card-v2.expanded .exp-main h3 {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.exp-card-v2.expanded .exp-main p {
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  margin-top: 10px;
+}
+
+.exp-card-v2.expanded .exp-preview {
+  display: none;
+}
+
+.exp-card-v2.expanded .exp-details {
+  display: block;
+  padding-top: 48px;
+}
+
+.exp-card-v2.expanded .exp-details p {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 780px;
+}
+
+.exp-card-v2.expanded .exp-toggle {
+  background: var(--green);
+  color: #041006;
+}
+
+/* responsive */
+@media (max-width: 1180px) {
+  .experience-grid-v2 {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .experience-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+
+  .exp-card-v2.expanded {
+    grid-template-columns: 1fr;
+    row-gap: 22px;
+  }
+
+  .exp-card-v2.expanded .exp-details {
+    padding-top: 0;
+  }
+}
+
+/* ===== Experience Popup Animation ===== */
+
+/* kill the old in-card expansion visually */
+.exp-card-v2.expanded {
+  grid-column: auto !important;
+  min-height: 220px !important;
+  display: block !important;
+}
+
+.exp-card-v2.expanded .exp-card-top {
+  position: static !important;
+}
+
+.exp-card-v2.expanded .exp-main {
+  padding-top: 0 !important;
+}
+
+.exp-card-v2.expanded .exp-preview {
+  display: block !important;
+}
+
+.exp-card-v2.expanded .exp-details {
+  display: none !important;
+}
+
+.exp-card-v2.expanded .exp-toggle {
+  background: rgba(255,255,255,0.08) !important;
+  color: var(--green-2) !important;
+}
+
+/* popup layer */
+.exp-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.exp-popup-overlay.active {
+  pointer-events: auto;
+}
+
+.exp-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  transition: 0.28s ease;
+}
+
+.exp-popup-overlay.active .exp-popup-backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.exp-popup-card {
+  position: fixed;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 85% 8%, rgba(29,185,84,0.28), transparent 34%),
+    radial-gradient(circle at 8% 100%, rgba(29,185,84,0.12), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035)),
+    #171717;
+
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.55);
+
+  padding: 34px;
+  border-radius: 26px;
+
+  opacity: 0;
+  transition:
+    top 0.36s cubic-bezier(.2,.9,.2,1),
+    left 0.36s cubic-bezier(.2,.9,.2,1),
+    width 0.36s cubic-bezier(.2,.9,.2,1),
+    height 0.36s cubic-bezier(.2,.9,.2,1),
+    border-radius 0.36s cubic-bezier(.2,.9,.2,1),
+    opacity 0.18s ease;
+}
+
+.exp-popup-card.moving {
+  opacity: 1;
+}
+
+.exp-popup-card.content-ready > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.exp-popup-card > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: 0.24s ease;
+}
+
+.exp-popup-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.13);
+  color: white;
+
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+#expPopupDate {
+  display: block;
+  color: var(--green-2);
+  font-size: 0.85rem;
+  font-weight: 950;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+#expPopupTitle {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: -3px;
+  margin-bottom: 10px;
+  max-width: 760px;
+}
+
+#expPopupCompany {
+  color: var(--muted);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  margin-bottom: 26px;
+}
+
+#expPopupBody {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  max-width: 760px;
+}
+
+@media (max-width: 700px) {
+  .exp-popup-card {
+    padding: 26px;
+  }
+
+  #expPopupTitle {
+    font-size: clamp(2.2rem, 12vw, 3.4rem);
+  }
+}
+
+/* Make experience popup content scroll safely */
+.exp-popup-card {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 70px);
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) rgba(255, 255, 255, 0.08);
+}
+
+.exp-popup-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.exp-popup-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+.exp-popup-card::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 999px;
+}
+
+/* ===== Fix popup close button position ===== */
+
+.exp-popup-card {
+  position: fixed;
+  padding-top: 44px; /* gives content breathing room */
+}
+
+.exp-popup-close {
+  position: absolute !important;
+  top: 22px !important;
+  right: 22px !important;
+  left: auto !important;
+
+  margin: 0 !important;
+  z-index: 20;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+
+  backdrop-filter: blur(10px);
+}
+
+.exp-popup-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: scale(1.05);
+}
+
+/* Hide popup scrollbar only during open/close animation */
+.exp-popup-card.popup-animating {
+  overflow: hidden !important;
+  scrollbar-width: none;
+}
+
+.exp-popup-card.popup-animating::-webkit-scrollbar {
+  display: none;
+}
