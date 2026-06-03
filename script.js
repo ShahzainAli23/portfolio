@@ -1,4 +1,4 @@
-const views = ["home", "projects", "experience", "skills", "startup", "contact"];
+const views = ["home", "experience", "projects", "skills", "startup", "contact"];
 
 const titles = {
   home: "Home",
@@ -6,7 +6,7 @@ const titles = {
   experience: "Experience",
   skills: "Skills & Tools",
   startup: "Wafflin’ Around",
-  contact: "Contact"
+  contact: "What’s Been Up"
 };
 
 const subtitles = {
@@ -15,7 +15,7 @@ const subtitles = {
   experience: "Professional tracklist",
   skills: "Data analysis + game dev + NLP",
   startup: "Startup execution",
-  contact: "Let’s connect"
+  contact: "Recent posts & current work"
 };
 
 const viewElements = document.querySelectorAll(".view");
@@ -186,6 +186,22 @@ document.querySelectorAll(".profile-photo, .wafflin-photo").forEach((img) => {
     const parent = img.parentElement;
     if (parent) {
       parent.classList.add("missing-image");
+    }
+  });
+});
+
+
+/* Expandable experience cards */
+document.querySelectorAll(".expandable-exp").forEach((card) => {
+  card.addEventListener("click", () => {
+    const alreadyOpen = card.classList.contains("expanded");
+
+    document.querySelectorAll(".expandable-exp").forEach((otherCard) => {
+      otherCard.classList.remove("expanded");
+    });
+
+    if (!alreadyOpen) {
+      card.classList.add("expanded");
     }
   });
 });

@@ -24,11 +24,11 @@
         <button class="nav-item active" data-view-link="home">
           <span>⌂</span> Home
         </button>
-        <button class="nav-item" data-view-link="projects">
-          <span>▦</span> Projects
-        </button>
         <button class="nav-item" data-view-link="experience">
           <span>◷</span> Experience
+        </button>
+        <button class="nav-item" data-view-link="projects">
+          <span>▦</span> Projects
         </button>
         <button class="nav-item" data-view-link="skills">
           <span>◈</span> Skills
@@ -79,16 +79,16 @@
         </div>
 
         <div class="home-cards">
-          <article class="launch-card standout" data-view-link="projects">
-            <span>01</span>
-            <h3>Projects</h3>
-            <p>Industry FYP, Java painter, WebGL, NLP, games, apps, and systems.</p>
-          </article>
-
           <article class="launch-card" data-view-link="experience">
-            <span>02</span>
+            <span>01</span>
             <h3>Experience</h3>
             <p>Data engineering, game instruction, NLP research, and Unity development.</p>
+          </article>
+
+          <article class="launch-card" data-view-link="projects">
+            <span>02</span>
+            <h3>Projects</h3>
+            <p>Industry FYP, Java painter, WebGL, NLP, games, apps, and systems.</p>
           </article>
 
           <article class="launch-card" data-view-link="skills">
@@ -105,9 +105,39 @@
 
           <article class="launch-card" data-view-link="contact">
             <span>05</span>
-            <h3>Contact</h3>
-            <p>Email, GitHub, LinkedIn, and quick links.</p>
+            <h3>What's Been Up</h3>
+            <p>Recent posts, current work, research, and what I’m building next.</p>
           </article>
+        </div>
+
+        <div class="home-updates">
+          <div class="home-updates-header">
+            <div>
+              <p class="eyebrow">Recently Played Updates</p>
+              <h3>What’s Been Up</h3>
+            </div>
+            <button class="mini-link-button" data-view-link="contact">Open Feed</button>
+          </div>
+
+          <div class="update-strip">
+            <article class="update-card compact-update">
+              <span class="update-date">Jun 2026</span>
+              <h4>Portfolio Rebuild</h4>
+              <p>Reworking this site into a Spotify-style portfolio with cleaner sections, stronger project focus, and more personality.</p>
+            </article>
+
+            <article class="update-card compact-update">
+              <span class="update-date">Current</span>
+              <h4>Machine Unlearning Research</h4>
+              <p>Reading around machine unlearning, reconstruction attacks, and leakage in forgotten-data workflows.</p>
+            </article>
+
+            <article class="update-card compact-update">
+              <span class="update-date">2025 - Present</span>
+              <h4>Deposit Analytics Engine</h4>
+              <p>Working on banking analytics, ETL/reporting workflows, volatility, drawdowns, persistence modelling, PCA, and Excel outputs.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -122,14 +152,7 @@
         </div>
 
         <div class="featured-project">
-          <div class="standout-image-card">
-            <img src="assets/deposit-engine.png" alt="Deposit Analytics Engine preview" />
-            <div class="standout-image-fallback">
-              <span>DAE</span>
-              <p>Industry Project • IP Proprietary</p>
-            </div>
-          </div>
-          <div>
+          <div class="featured-project-main">
             <p class="eyebrow">Standout Project / FYP</p>
             <h3>Deposit Analytics Engine</h3>
             <p>
@@ -221,35 +244,65 @@
           </div>
         </div>
 
-        <div class="experience-grid">
-          <article class="experience-card current">
-            <span>09/2025 - Present</span>
-            <h3>Co-Founder @ Wafflin’ Around</h3>
-            <p>Built operational systems for a student-run venture, including inventory tracking, workflow optimization, product development, and process improvements.</p>
+        <div class="experience-grid expandable-grid">
+          <article class="experience-card expandable-exp current">
+            <div class="exp-front">
+              <span>09/2025 - Present</span>
+              <h3>Co-Founder @ Wafflin’ Around</h3>
+            </div>
+            <div class="exp-expanded">
+              <span>09/2025 - Present</span>
+              <h3>Co-Founder @ Wafflin’ Around</h3>
+              <p>Built operational systems for a student-run venture, including inventory tracking, workflow optimization, product development, and process improvements.</p>
+            </div>
           </article>
 
-          <article class="experience-card">
-            <span>03/2025 - 05/2026</span>
-            <h3>Game Development Instructor @ Alchemy Technologies R&amp;D Project</h3>
-            <p>Taught programming and game development through Unreal Engine Blueprints, structured learning modules, logic systems, and gameplay mechanics.</p>
+          <article class="experience-card expandable-exp">
+            <div class="exp-front">
+              <span>03/2025 - 05/2026</span>
+              <h3>Game Development Instructor @ Alchemy Technologies R&amp;D Project</h3>
+            </div>
+            <div class="exp-expanded">
+              <span>03/2025 - 05/2026</span>
+              <h3>Game Development Instructor @ Alchemy Technologies R&amp;D Project</h3>
+              <p>Taught programming and game development through Unreal Engine Blueprints, structured learning modules, logic systems, and gameplay mechanics.</p>
+            </div>
           </article>
 
-          <article class="experience-card">
-            <span>06/2025 - 10/2025</span>
-            <h3>Data Engineering Intern @ Alchemy Technologies</h3>
-            <p>Designed ETL pipelines using SQL and Pro*C for banking datasets, automated Excel analytics outputs, and optimized high-volume data workflows.</p>
+          <article class="experience-card expandable-exp">
+            <div class="exp-front">
+              <span>06/2025 - 10/2025</span>
+              <h3>Data Engineering Intern @ Alchemy Technologies</h3>
+            </div>
+            <div class="exp-expanded">
+              <span>06/2025 - 10/2025</span>
+              <h3>Data Engineering Intern @ Alchemy Technologies</h3>
+              <p>Designed ETL pipelines using SQL and Pro*C for banking datasets, automated Excel analytics outputs, and optimized high-volume data workflows.</p>
+            </div>
           </article>
 
-          <article class="experience-card">
-            <span>01/2025 - 02/2025</span>
-            <h3>NLP Research Project @ GoYzer Technology Solutions</h3>
-            <p>Built an NLP prototype to convert unstructured real estate listings into structured property intelligence and deployed it on an Azure VM.</p>
+          <article class="experience-card expandable-exp">
+            <div class="exp-front">
+              <span>01/2025 - 02/2025</span>
+              <h3>NLP Research Project @ GoYzer Technology Solutions</h3>
+            </div>
+            <div class="exp-expanded">
+              <span>01/2025 - 02/2025</span>
+              <h3>NLP Research Project @ GoYzer Technology Solutions</h3>
+              <p>Built an NLP prototype to convert unstructured real estate listings into structured property intelligence and deployed it on an Azure VM.</p>
+            </div>
           </article>
 
-          <article class="experience-card">
-            <span>06/2024 - 08/2024</span>
-            <h3>Game Development Intern @ M-Labs / Mindstorm</h3>
-            <p>Collaborated on a Unity hypercasual game with slingshot physics, multiple levels, and rapid team-based delivery.</p>
+          <article class="experience-card expandable-exp">
+            <div class="exp-front">
+              <span>06/2024 - 08/2024</span>
+              <h3>Game Development Intern @ M-Labs / Mindstorm</h3>
+            </div>
+            <div class="exp-expanded">
+              <span>06/2024 - 08/2024</span>
+              <h3>Game Development Intern @ M-Labs / Mindstorm</h3>
+              <p>Collaborated on a Unity hypercasual game with slingshot physics, multiple levels, and rapid team-based delivery.</p>
+            </div>
           </article>
         </div>
       </section>
@@ -400,28 +453,60 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
-      <section class="view" id="contact" aria-label="Contact">
-        <div class="contact-layout">
+      <!-- WHAT'S BEEN UP -->
+      <section class="view" id="contact" aria-label="What's Been Up">
+        <div class="view-header">
           <div>
-            <p class="eyebrow">Final Track</p>
-            <h2>Let’s connect.</h2>
+            <p class="eyebrow">Activity Feed</p>
+            <h2>What's Been Up</h2>
+          </div>
+          <p class="view-note">Static posts. Add new ones from the code when needed.</p>
+        </div>
+
+        <div class="updates-layout">
+          <article class="update-feature">
+            <span class="update-date">Current</span>
+            <h3>Machine Unlearning Research</h3>
             <p>
-              Open to data analytics, data engineering, game development, NLP/product work,
-              and software roles where I can build practical systems.
+              Reading around machine unlearning, reconstruction attacks, and how leakage can appear
+              in forgotten-data workflows. The current focus is understanding where attacks become
+              realistic, what information they require, and how unlearning systems can be evaluated.
             </p>
+          </article>
+
+          <div class="updates-list">
+            <article class="update-card">
+              <span class="update-date">Jun 2026</span>
+              <h4>Portfolio Rebuild</h4>
+              <p>Reworking this site into a Spotify-style portfolio with cleaner sections, stronger project focus, expandable experience cards, and more personality.</p>
+            </article>
+
+            <article class="update-card">
+              <span class="update-date">2025 - Present</span>
+              <h4>Deposit Analytics Engine</h4>
+              <p>Working on banking analytics, ETL/reporting workflows, volatility, drawdowns, persistence modelling, PCA, and Excel-based analytics outputs.</p>
+            </article>
+
+            <article class="update-card">
+              <span class="update-date">2025 - Present</span>
+              <h4>Wafflin’ Around</h4>
+              <p>Building around real operations: inventory, workflow, product execution, POS thinking, and customer-facing systems.</p>
+            </article>
+
+            <article class="update-card">
+              <span class="update-date">Recent</span>
+              <h4>Game Dev + Graphics</h4>
+              <p>Working across game logic, WebGL-style graphics, puzzle mechanics, and systems where code has to feel visual instead of invisible.</p>
+            </article>
           </div>
 
-          <div class="contact-card">
-            <a href="mailto:shahzain.alikhan23@gmail.com">
-              <span>Email</span>
-            </a>
-            <a href="https://github.com/ShahzainAli23" target="_blank" rel="noreferrer">
-              <span>GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/shahzain-ali-khan-829543241" target="_blank" rel="noreferrer">
-              <span>LinkedIn</span>
-            </a>
+          <div class="contact-mini-card">
+            <p class="eyebrow">Contact Links</p>
+            <div>
+              <a href="mailto:shahzain.alikhan23@gmail.com">Email</a>
+              <a href="https://github.com/ShahzainAli23" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/shahzain-ali-khan-829543241" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
           </div>
         </div>
       </section>
