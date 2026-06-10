@@ -311,3 +311,106 @@ document.addEventListener("keydown", (event) => {
     closeExperiencePopup();
   }
 });
+
+/* What's Been Up popup cards */
+const upPopupOverlay = document.getElementById("upPopupOverlay");
+const upPopupBackdrop = document.getElementById("upPopupBackdrop");
+const upPopupCard = document.getElementById("upPopupCard");
+const upPopupClose = document.getElementById("upPopupClose");
+
+const upPopupDate = document.getElementById("upPopupDate");
+const upPopupTitle = document.getElementById("upPopupTitle");
+const upPopupSubtitle = document.getElementById("upPopupSubtitle");
+const upPopupBody = document.getElementById("upPopupBody");
+
+let lastUpCard = null;
+let lastUpRect = null;
+let upPopupScrollbarTimer = null;
+
+function openUpPopup(card) {
+  lastUpCard = card;
+  lastUpRect = card.getBoundingClientRect();
+
+  upPopupDate.textContent = card.dataset.postDate || "";
+  upPopupTitle.textContent = card.dataset.postTitle || "";
+  upPopupSubtitle.textContent = card.dataset.postSubtitle || "";
+  upPopupBody.textContent = card.dataset.postBody || "";
+
+  clearTimeout(upPopupScrollbarTimer);
+
+  upPopupOverlay.classList.add("active");
+  upPopupCard.classList.remove("content-ready");
+  upPopupCard.classList.add("popup-animating");
+
+  upPopupCard.style.top = `${lastUpRect.top}px`;
+  upPopupCard.style.left = `${lastUpRect.left}px`;
+  upPopupCard.style.width = `${lastUpRect.width}px`;
+  upPopupCard.style.height = `${lastUpRect.height}px`;
+  upPopupCard.style.borderRadius = "28px";
+
+  upPopupCard.classList.add("moving");
+
+  requestAnimationFrame(() => {
+    const targetWidth = Math.min(860, window.innerWidth - 44);
+    const targetHeight = Math.min(520, window.innerHeight - 70);
+    const targetLeft = (window.innerWidth - targetWidth) / 2;
+    const targetTop = (window.innerHeight - targetHeight) / 2;
+
+    upPopupCard.style.top = `${targetTop}px`;
+    upPopupCard.style.left = `${targetLeft}px`;
+    upPopupCard.style.width = `${targetWidth}px`;
+    upPopupCard.style.height = `${targetHeight}px`;
+    upPopupCard.style.borderRadius = "32px";
+
+    setTimeout(() => {
+      upPopupCard.classList.add("content-ready");
+
+      upPopupScrollbarTimer = setTimeout(() => {
+        upPopupCard.classList.remove("popup-animating");
+      }, 500);
+    }, 380);
+  });
+}
+
+function closeUpPopup() {
+  if (!lastUpRect) return;
+
+  clearTimeout(upPopupScrollbarTimer);
+  upPopupCard.classList.add("popup-animating");
+  upPopupCard.classList.remove("content-ready");
+
+  setTimeout(() => {
+    upPopupCard.style.top = `${lastUpRect.top}px`;
+    upPopupCard.style.left = `${lastUpRect.left}px`;
+    upPopupCard.style.width = `${lastUpRect.width}px`;
+    upPopupCard.style.height = `${lastUpRect.height}px`;
+    upPopupCard.style.borderRadius = "28px";
+  }, 80);
+
+  setTimeout(() => {
+    upPopupOverlay.classList.remove("active");
+    upPopupCard.classList.remove("moving");
+
+    lastUpCard = null;
+    lastUpRect = null;
+
+    upPopupScrollbarTimer = setTimeout(() => {
+      upPopupCard.classList.remove("popup-animating");
+    }, 500);
+  }, 430);
+}
+
+document.querySelectorAll(".up-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    openUpPopup(card);
+  });
+});
+
+if (upPopupClose) upPopupClose.addEventListener("click", closeUpPopup);
+if (upPopupBackdrop) upPopupBackdrop.addEventListener("click", closeUpPopup);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeUpPopup();
+  }
+});

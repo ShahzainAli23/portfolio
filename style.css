@@ -2254,3 +2254,254 @@ button {
 .exp-popup-card.popup-animating::-webkit-scrollbar {
   display: none;
 }
+
+/* ===== What's Been Up v2 ===== */
+
+#contact.view {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding-bottom: 48px;
+}
+
+.up-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.up-card {
+  min-height: 250px;
+  border-radius: 28px;
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
+}
+
+.up-card:hover {
+  transform: translateY(-6px) rotate(-0.4deg);
+}
+
+.up-card--green {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(29,185,84,0.22), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025));
+}
+
+.up-card--purple {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(168,85,247,0.22), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025));
+}
+
+.up-card--orange {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(251,146,60,0.22), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025));
+}
+
+.up-card--blue {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(96,165,250,0.22), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025));
+}
+
+.up-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.up-pill {
+  font-size: 0.74rem;
+  font-weight: 950;
+  letter-spacing: 0.9px;
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.up-emoji {
+  font-size: 1.4rem;
+}
+
+.up-card h3 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.up-card p {
+  color: rgba(255,255,255,0.74);
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.up-date {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--green-2);
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.6px;
+}
+
+/* popup */
+.up-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.up-popup-overlay.active {
+  pointer-events: auto;
+}
+
+.up-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  backdrop-filter: blur(0px);
+  transition: 0.28s ease;
+}
+
+.up-popup-overlay.active .up-popup-backdrop {
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(12px);
+}
+
+.up-popup-card {
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 70px);
+
+  background:
+    radial-gradient(circle at 85% 8%, rgba(29,185,84,0.22), transparent 34%),
+    radial-gradient(circle at 10% 100%, rgba(96,165,250,0.12), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035)),
+    #171717;
+
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.55);
+  padding: 34px;
+  padding-top: 54px;
+  border-radius: 28px;
+
+  opacity: 0;
+  transition:
+    top 0.36s cubic-bezier(.2,.9,.2,1),
+    left 0.36s cubic-bezier(.2,.9,.2,1),
+    width 0.36s cubic-bezier(.2,.9,.2,1),
+    height 0.36s cubic-bezier(.2,.9,.2,1),
+    border-radius 0.36s cubic-bezier(.2,.9,.2,1),
+    opacity 0.18s ease;
+}
+
+.up-popup-card.popup-animating {
+  overflow: hidden !important;
+  scrollbar-width: none;
+}
+
+.up-popup-card.popup-animating::-webkit-scrollbar {
+  display: none;
+}
+
+.up-popup-card.moving {
+  opacity: 1;
+}
+
+.up-popup-card > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: 0.24s ease;
+}
+
+.up-popup-card.content-ready > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.up-popup-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  backdrop-filter: blur(10px);
+}
+
+#upPopupDate {
+  display: block;
+  color: var(--green-2);
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+#upPopupTitle {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 0.92;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+}
+
+#upPopupSubtitle {
+  color: var(--muted);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-bottom: 24px;
+}
+
+#upPopupBody {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 760px;
+}
+
+@media (max-width: 900px) {
+  .up-feed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Bottom player placement fix ===== */
+
+.player {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 100%;
+  z-index: 60;
+  background: var(--black) !important;
+}
+
+.app-shell {
+  height: calc(100dvh - var(--player-height)) !important;
+}
+
+.main-stage {
+  height: 100% !important;
+}

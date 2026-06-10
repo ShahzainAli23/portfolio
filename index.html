@@ -110,35 +110,6 @@
           </article>
         </div>
 
-        <div class="home-updates">
-          <div class="home-updates-header">
-            <div>
-              <p class="eyebrow">Recently Played Updates</p>
-              <h3>What’s Been Up</h3>
-            </div>
-            <button class="mini-link-button" data-view-link="contact">Open Feed</button>
-          </div>
-
-          <div class="update-strip">
-            <article class="update-card compact-update">
-              <span class="update-date">Jun 2026</span>
-              <h4>Portfolio Rebuild</h4>
-              <p>Reworking this site into a Spotify-style portfolio with cleaner sections, stronger project focus, and more personality.</p>
-            </article>
-
-            <article class="update-card compact-update">
-              <span class="update-date">Current</span>
-              <h4>Machine Unlearning Research</h4>
-              <p>Reading around machine unlearning, reconstruction attacks, and leakage in forgotten-data workflows.</p>
-            </article>
-
-            <article class="update-card compact-update">
-              <span class="update-date">2025 - Present</span>
-              <h4>Deposit Analytics Engine</h4>
-              <p>Working on banking analytics, ETL/reporting workflows, volatility, drawdowns, persistence modelling, PCA, and Excel outputs.</p>
-            </article>
-          </div>
-        </div>
       </section>
 
       <!-- PROJECTS -->
@@ -528,58 +499,73 @@
       <section class="view" id="contact" aria-label="What's Been Up">
         <div class="view-header">
           <div>
-            <p class="eyebrow">Activity Feed</p>
-            <h2>What's Been Up</h2>
+            <p class="eyebrow">SIDE QUESTS / SIGNALS / LOGBOOK</p>
+            <h2>What’s Been Up</h2>
           </div>
+          <p class="view-note">Small updates, experiments, wins, and random side quests.</p>
         </div>
 
-        <div class="updates-layout">
-          <article class="update-feature">
-            <span class="update-date">Current</span>
-            <h3>Machine Unlearning Research</h3>
-            <p>
-              Reading around machine unlearning, reconstruction attacks, and how leakage can appear
-              in forgotten-data workflows. The current focus is understanding where attacks become
-              realistic, what information they require, and how unlearning systems can be evaluated.
-            </p>
+        <div class="up-feed-grid">
+
+          <article class="up-card up-card--green"
+            data-post-date="June 2026"
+            data-post-title="Portfolio Rebuild"
+            data-post-subtitle="Making this thing feel less like a resume and more like a product."
+            data-post-body="Reworking the portfolio into a Spotify-style experience with better structure, stronger project focus, cleaner interactions, and more personality. Basically trying to make it look like I actually care what people feel when they open it.">
+            <div class="up-card-top">
+              <span class="up-pill">UI / PERSONAL BRAND</span>
+              <span class="up-emoji">🎧</span>
+            </div>
+            <h3>Portfolio Rebuild</h3>
+            <p>Making this thing feel less like a resume and more like a product.</p>
+            <span class="up-date">June 2026</span>
           </article>
 
-          <div class="updates-list">
-            <article class="update-card">
-              <span class="update-date">Jun 2026</span>
-              <h4>Portfolio Rebuild</h4>
-              <p>Reworking this site into a Spotify-style portfolio with cleaner sections, stronger project focus, expandable experience cards, and more personality.</p>
-            </article>
-
-            <article class="update-card">
-              <span class="update-date">2025 - Present</span>
-              <h4>Deposit Analytics Engine</h4>
-              <p>Working on banking analytics, ETL/reporting workflows, volatility, drawdowns, persistence modelling, PCA, and Excel-based analytics outputs.</p>
-            </article>
-
-            <article class="update-card">
-              <span class="update-date">2025 - Present</span>
-              <h4>Wafflin’ Around</h4>
-              <p>Building around real operations: inventory, workflow, product execution, POS thinking, and customer-facing systems.</p>
-            </article>
-
-            <article class="update-card">
-              <span class="update-date">Recent</span>
-              <h4>Game Dev + Graphics</h4>
-              <p>Working across game logic, WebGL-style graphics, puzzle mechanics, and systems where code has to feel visual instead of invisible.</p>
-            </article>
-          </div>
-
-          <div class="contact-mini-card">
-            <p class="eyebrow">Contact Links</p>
-            <div>
-              <a href="mailto:shahzain.alikhan23@gmail.com">Email</a>
-              <a href="https://github.com/ShahzainAli23" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://www.linkedin.com/in/shahzain-ali-khan-829543241" target="_blank" rel="noreferrer">LinkedIn</a>
+          <article class="up-card up-card--purple"
+            data-post-date="June 2026"
+            data-post-title="Machine Unlearning Rabbit Hole"
+            data-post-subtitle="Reading about unlearning, leakage, and attack possibilities."
+            data-post-body="Currently reading around machine unlearning, reconstruction attacks, and how forgotten data can still leave traces behind. The interesting part is understanding where attacks become realistic, what assumptions they rely on, and how to evaluate whether unlearning actually worked.">
+            <div class="up-card-top">
+              <span class="up-pill">RESEARCH</span>
+              <span class="up-emoji">🧠</span>
             </div>
-          </div>
+            <h3>Machine Unlearning Rabbit Hole</h3>
+            <p>Reading about unlearning, leakage, and attack possibilities.</p>
+            <span class="up-date">June 2026</span>
+          </article>
+
+          <article class="up-card up-card--orange"
+            data-post-date="2025 - Present"
+            data-post-title="Deposit Analytics Engine"
+            data-post-subtitle="Banking analytics, ETL pipelines, modelling, and Excel outputs."
+            data-post-body="Still working on the Deposit Analytics Engine, which is the standout project here. It covers deposit behaviour analysis, ETL/reporting workflows, statistical modelling, volatility analysis, drawdown metrics, persistence modelling, PCA, and Excel-based outputs. Proprietary project, so public visuals stay limited.">
+            <div class="up-card-top">
+              <span class="up-pill">INDUSTRY PROJECT</span>
+              <span class="up-emoji">📊</span>
+            </div>
+            <h3>Deposit Analytics Engine</h3>
+            <p>Banking analytics, ETL pipelines, modelling, and Excel outputs.</p>
+            <span class="up-date">2025 - Present</span>
+          </article>
+
+          <article class="up-card up-card--blue"
+            data-post-date="2025 - Present"
+            data-post-title="Wafflin’ Around"
+            data-post-subtitle="Real startup work, not just startup aesthetics."
+            data-post-body="Wafflin’ Around has been product, operations, workflow thinking, and POS-related work all at once. It’s one of the few places where systems, decisions, and messy real-world constraints all show up together, which makes it fun.">
+            <div class="up-card-top">
+              <span class="up-pill">STARTUP</span>
+              <span class="up-emoji">🧇</span>
+            </div>
+            <h3>Wafflin’ Around</h3>
+            <p>Real startup work, not just startup aesthetics.</p>
+            <span class="up-date">2025 - Present</span>
+          </article>
+
         </div>
       </section>
+
     </main>
   </div>
 
@@ -619,6 +605,19 @@
       <h3 id="expPopupTitle"></h3>
       <h4 id="expPopupCompany"></h4>
       <p id="expPopupBody"></p>
+    </article>
+  </div>
+
+  <div class="up-popup-overlay" id="upPopupOverlay">
+    <div class="up-popup-backdrop" id="upPopupBackdrop"></div>
+
+    <article class="up-popup-card" id="upPopupCard">
+      <button class="up-popup-close" id="upPopupClose" aria-label="Close post">×</button>
+
+      <span id="upPopupDate"></span>
+      <h3 id="upPopupTitle"></h3>
+      <h4 id="upPopupSubtitle"></h4>
+      <p id="upPopupBody"></p>
     </article>
   </div>
 
