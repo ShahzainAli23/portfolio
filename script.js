@@ -10,12 +10,12 @@ const titles = {
 };
 
 const subtitles = {
-  home: "Portfolio playlist",
-  projects: "Industry FYP + selected builds",
-  experience: "Professional tracklist",
-  skills: "Data analysis + game dev + NLP",
-  startup: "Startup execution",
-  contact: "Recent posts & current work"
+  home: "Portfolio Playlist",
+  projects: "Project Playlist",
+  experience: "Professional Tracklist",
+  skills: "Favorites Playlist",
+  startup: "Joyous Tracklist",
+  contact: "Side Quests Playlist"
 };
 
 const viewElements = document.querySelectorAll(".view");
@@ -228,12 +228,12 @@ function openExperiencePopup(card) {
   const date = card.querySelector(".exp-date")?.textContent || "";
   const title = card.querySelector(".exp-main h3")?.textContent || "";
   const company = card.querySelector(".exp-main p")?.textContent || "";
-  const body = card.querySelector(".exp-details p")?.textContent || "";
+  const body = card.querySelector(".exp-details")?.innerHTML || "";
 
   expPopupDate.textContent = date;
   expPopupTitle.textContent = title;
   expPopupCompany.textContent = company;
-  expPopupBody.textContent = body;
+  expPopupBody.innerHTML = body;
 
   clearTimeout(popupScrollbarTimer);
 

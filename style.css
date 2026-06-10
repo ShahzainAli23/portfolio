@@ -2505,3 +2505,20 @@ button {
 .main-stage {
   height: 100% !important;
 }
+
+/* ===== Experience popup multiple paragraphs ===== */
+
+#expPopupBody {
+  max-width: 780px;
+}
+
+#expPopupBody p {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+#expPopupBody p:last-child {
+  margin-bottom: 0;
+}
