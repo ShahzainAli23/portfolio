@@ -2522,3 +2522,68 @@ button {
 #expPopupBody p:last-child {
   margin-bottom: 0;
 }
+
+/* ===== Mobile popup scroll fix ===== */
+
+@media (max-width: 700px) {
+  .exp-popup-overlay.active,
+  .up-popup-overlay.active {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    overflow: hidden !important;
+  }
+
+  .exp-popup-card.moving,
+  .up-popup-card.moving {
+    position: fixed !important;
+
+    top: 14px !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 14px !important;
+
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+
+    padding: 26px !important;
+    padding-top: 64px !important;
+  }
+
+  .exp-popup-card.popup-animating,
+  .up-popup-card.popup-animating {
+    overflow: hidden !important;
+  }
+
+  .exp-popup-card.content-ready,
+  .up-popup-card.content-ready {
+    overflow-y: auto !important;
+  }
+
+  .exp-popup-close,
+  .up-popup-close {
+    position: fixed !important;
+    top: 26px !important;
+    right: 24px !important;
+    z-index: 10000 !important;
+  }
+
+  #expPopupTitle,
+  #upPopupTitle {
+    font-size: clamp(2rem, 11vw, 3.2rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -2px !important;
+  }
+
+  #expPopupBody,
+  #upPopupBody {
+    padding-bottom: 40px;
+  }
+}

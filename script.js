@@ -251,7 +251,9 @@ function openExperiencePopup(card) {
 
   requestAnimationFrame(() => {
     const targetWidth = Math.min(820, window.innerWidth - 44);
-    const targetHeight = Math.min(520, window.innerHeight - 70);
+    const targetHeight = window.innerWidth <= 700
+      ? window.innerHeight - 28
+      : Math.min(520, window.innerHeight - 70);
     const targetLeft = (window.innerWidth - targetWidth) / 2;
     const targetTop = (window.innerHeight - targetHeight) / 2;
 
