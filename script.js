@@ -416,3 +416,48 @@ document.addEventListener("keydown", (event) => {
     closeUpPopup();
   }
 });
+
+/* Mobile drawer navigation */
+const mobileNavToggle = document.getElementById("mobileNavToggle");
+
+const mobileNavBackdrop = document.createElement("div");
+mobileNavBackdrop.className = "mobile-nav-backdrop";
+document.body.appendChild(mobileNavBackdrop);
+
+function openMobileNav() {
+  document.body.classList.add("mobile-nav-open");
+  if (mobileNavToggle) {
+    mobileNavToggle.textContent = "×";
+    mobileNavToggle.setAttribute("aria-label", "Close navigation");
+  }
+}
+
+function closeMobileNav() {
+  document.body.classList.remove("mobile-nav-open");
+  if (mobileNavToggle) {
+    mobileNavToggle.textContent = "☰";
+    mobileNavToggle.setAttribute("aria-label", "Open navigation");
+  }
+}
+
+if (mobileNavToggle) {
+  mobileNavToggle.addEventListener("click", () => {
+    if (document.body.classList.contains("mobile-nav-open")) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
+  });
+}
+
+mobileNavBackdrop.addEventListener("click", closeMobileNav);
+
+document.querySelectorAll(".sidebar [data-view-link]").forEach((item) => {
+  item.addEventListener("click", closeMobileNav);
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) {
+    closeMobileNav();
+  }
+});

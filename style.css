@@ -2662,3 +2662,140 @@ button {
     bottom: 0 !important;
   }
 }
+
+/* ===== Mobile-only drawer nav + fixed bottom player ===== */
+
+/* hidden on desktop */
+.mobile-nav-toggle,
+.mobile-nav-backdrop {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* give page room because player is now floating over it */
+  html,
+  body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body {
+    padding-bottom: calc(var(--player-height) + env(safe-area-inset-bottom) + 18px) !important;
+  }
+
+  /* bottom player stays visible while scrolling */
+  .player {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    width: 100% !important;
+    height: calc(var(--player-height) + env(safe-area-inset-bottom)) !important;
+
+    z-index: 700;
+    background: var(--black) !important;
+    border-top: 1px solid var(--faint);
+
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom)) !important;
+
+    grid-template-columns: minmax(0, 1fr) auto !important;
+  }
+
+  .right-meter {
+    display: none !important;
+  }
+
+  /* mobile hamburger button */
+  .mobile-nav-toggle {
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
+
+    font-size: 1.25rem;
+    font-weight: 950;
+
+    z-index: 8002;
+    flex-shrink: 0;
+  }
+
+  .topbar {
+    justify-content: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .top-actions {
+    margin-left: auto;
+  }
+
+  /* dark overlay behind drawer */
+  .mobile-nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+
+    z-index: 8000;
+  }
+
+  body.mobile-nav-open .mobile-nav-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* turn old sidebar into phone drawer */
+  .sidebar {
+    display: flex !important;
+
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+
+    width: min(82vw, 310px) !important;
+    height: 100dvh !important;
+
+    z-index: 8001;
+
+    transform: translateX(-105%);
+    transition: transform 0.28s cubic-bezier(.2,.9,.2,1);
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    box-shadow: 28px 0 80px rgba(0, 0, 0, 0.5);
+  }
+
+  body.mobile-nav-open .sidebar {
+    transform: translateX(0);
+  }
+
+  body.mobile-nav-open .mobile-nav-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+
+  body.mobile-nav-open .mobile-nav-toggle {
+    background: var(--green);
+    color: #041006;
+  }
+
+  /* make content not hide behind fixed player */
+  .view.active {
+    padding-bottom: calc(var(--player-height) + 30px) !important;
+  }
+}
