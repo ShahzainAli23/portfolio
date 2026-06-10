@@ -2587,3 +2587,78 @@ button {
     padding-bottom: 40px;
   }
 }
+
+/* ===== REAL MAIN PAGE MOBILE SCROLL FIX ===== */
+
+@media (max-width: 900px) {
+  html,
+  body {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body {
+    min-height: 100dvh !important;
+  }
+
+  .app-shell {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .main-stage {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding: 12px !important;
+  }
+
+  .view {
+    position: relative !important;
+
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+
+    width: 100% !important;
+    height: auto !important;
+    min-height: calc(100dvh - var(--player-height) - 90px) !important;
+    max-height: none !important;
+
+    overflow: visible !important;
+
+    display: none !important;
+    margin-top: 12px !important;
+  }
+
+  .view.active {
+    display: block !important;
+  }
+
+  #home.view,
+  #projects.view,
+  #experience.view,
+  #skills.view,
+  #startup.view,
+  #contact.view {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .project-shelf {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+
+  .player {
+    position: sticky !important;
+    bottom: 0 !important;
+  }
+}
